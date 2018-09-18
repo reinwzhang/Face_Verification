@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Face Comparison{% endblock %}
+
+{% block page_content %}
+<form id="form" class="form-inline" method="post" enctype="multipart/form-data">
+	<div class="container" style="top: 200px">
+		<div class="col-sm-4" style="padding-top: 80px; padding-left: 60px">
+			<input id="file1" type="file" class="" name="file1" onchange="readURL(this, '#img1');">
+			<div class="image-top-buffer">
+			    <img id="img1" class="img-responsive img-rounded">
+			</div>
+		</div>
+
+		<div class="col-sm-4" style="padding-top: 80px; padding-left: 60px">
+			<input id="file2" type="file" class="" name="file2" onchange="readURL(this, '#img2');">
+			<div class="image-top-buffer">
+				<img id="img2" class="img-responsive img-rounded">
+			</div>
+		</div>
+		<div class="col-sm-12" style="padding-top: 80px; padding-left: 60px">
+			<button id="submit" type="submit" class="btn btn-success">Upload</button>
+		</div>
+    </div>
+</form>
+
+<script>
+    function readURL(input, show_div) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(show_div)
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% endblock %}
