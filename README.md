@@ -9,23 +9,6 @@ cp /path/to/unzip/dir/* recognize/facenet_model
 ```
 
 ## Run
-
-### For Docker users
-
-First, build the docker container.
-
-```
-docker build -t face .
-```
-
-Then, run the docker.
-
-```
-docker run -it -p 5000:5000 face python app.py
-```
-
-### For other users
-
 First, install the python dependencies.
 
 ```
@@ -35,9 +18,16 @@ pip install -r requirements.txt
 Then, run the webserver.
 
 ```
-python app.py
+python webface.py
 ```
 
-## Implement
+## To calculate score only
+```
+python test.py
+```
 
-Please implement the empty parts in `detect/MtcnnDetector.py` and `recognize/facenet.py`
+## To test facial Detection with MTCNN
+```
+cd test
+python one_image_test.py
+```
